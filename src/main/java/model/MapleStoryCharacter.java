@@ -106,9 +106,6 @@ public class MapleStoryCharacter {
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         Document document = documentBuilder.parse(new InputSource(new StringReader(xml)));
 
-        System.out.println(document.getElementsByTagName("UserInfo").getLength());
-//        document.
-
         document.getDocumentElement().normalize();
 
         return document;
