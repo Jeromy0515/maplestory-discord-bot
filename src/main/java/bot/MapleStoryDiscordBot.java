@@ -1,5 +1,6 @@
 package bot;
 
+import model.MapleStoryCharacter;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -69,12 +70,20 @@ public class MapleStoryDiscordBot extends ListenerAdapter implements MessageList
                             return;
                         }
 
+                        /* 미구현 */
+                        int accountID = getUserAccountID("");
 
-
-
-
-
-
+                        MapleStoryCharacter mapleStoryCharacter = new MapleStoryCharacter(101077880);
+                        eb.setTitle("캐릭터검색 결과 ");
+                        eb.setImage(mapleStoryCharacter.getAvatarImgURL())
+                        .addField("",
+                                "이름 : " + mapleStoryCharacter.getCharacterName() + "\n" +
+                                "서버 : " + mapleStoryCharacter.getWorldName() + "\n" +
+                                "레벨 : " + mapleStoryCharacter.getLevel() + "\n" +
+                                "경험치 : " + mapleStoryCharacter.getExp() + "\n" +
+                                "직업 : " + mapleStoryCharacter.getJob() + "\n" +
+                                "종합 랭킹 : " + mapleStoryCharacter.getTotalRank() + "\n" +
+                                "월드 랭킹 : " + mapleStoryCharacter.getWorldRank(),false);
 
                     }else if(command.contains("")){
 
@@ -83,6 +92,11 @@ public class MapleStoryDiscordBot extends ListenerAdapter implements MessageList
             }
         }
 
+    }
+
+    private int getUserAccountID(String charaterName){
+
+        return 0;
     }
 
     private void sendMessage(MessageChannel channel, EmbedBuilder eb) {
