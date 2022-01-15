@@ -106,6 +106,7 @@ public class MapleStoryCharacter {
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         Document document = documentBuilder.parse(new InputSource(new StringReader(xml)));
 
+        /* document.getDocumentElement().normalize() 문서 구조 안정화(?) */
         document.getDocumentElement().normalize();
 
         return document;
